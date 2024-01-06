@@ -1,0 +1,13 @@
+// Write a program to find the sum of the given series 1+2+3+ . . . . . .(N terms) 
+
+
+solution : 1
+class Solution{
+	long seriesSum(int n){	
+		long sum = 0;
+ 		for(int i=1;i<=n;i++){
+			sum+=i;
+		}
+		return sum;
+	}
+}
