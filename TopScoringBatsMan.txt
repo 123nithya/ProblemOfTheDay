@@ -1,0 +1,40 @@
+//The runs scored by N batsman of a cricket team is passed as //the input to the program. The program must print the name of //the batsman who scored the highest runs.(You can assume that //no two batsman will be the top scorers).
+
+//Input : 5
+//	BatmanA,45
+//	BatmanB,52
+//	BatmanC,12
+//	BatmanD,9
+//	BatmanE,78
+//Output: 
+//	BatsmanE
+
+
+Solution : 
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        sc.nextLine();
+        String str = "";
+        String nam = "";
+        int max = 0;
+        for(int i=0;i<n;i++){
+            String name = sc.nextLine();
+            String arr[] = name.split(",");
+            nam = arr[0];
+            int great = Integer.parseInt(arr[1]);
+            if(great>max)
+            {
+                max = great;
+                str = nam;
+            }
+        }
+        System.out.print("The batsman with best score : "+str);
+    }
+}
+
+	
