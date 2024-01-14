@@ -1,0 +1,24 @@
+//The program must accept three integer values A,B and C which //are distinct. The program must print the middle value(the //value which is the largest as well as the second smallest).
+
+//INPUT :
+//120 58 64
+
+//OUTPUT : 
+//64.
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		int n = 3;
+		int arr[] = new int[n];
+		for(int i=0;i<n;i++){
+			arr[i] = sc.nextInt();
+		}
+		Arrays.sort(arr);
+		System.out.print(arr[n-2]);
+	}
+}
