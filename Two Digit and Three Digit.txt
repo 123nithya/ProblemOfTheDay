@@ -1,0 +1,29 @@
+//The program must accept two integers N1 and N2 as the //input.The program must print "yes" if the N1 is a two digit //number and the N2 is a three digit number else print "no" as //the output.
+
+//INPUT:
+//17 324
+//7 521
+
+//OUTPUT:
+//yes
+//no
+
+SOLUTION:
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		int t1 = sc.nextInt();
+		int t2 = sc.nextInt();
+		if((t1>9 && t1<100)&&(t2>99 && t2<1000))
+		{
+			System.out.print("yes");
+		}
+		else
+		{
+			System.out.print("no");
+		}
+	}
+}
