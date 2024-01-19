@@ -1,0 +1,35 @@
+//String S which is a palindrome is passed as the input. But //just one aplphabet A is missing in S.The program must print //the missing alphabet A.
+
+//INPUT: 
+//malayaam
+//abcddcb
+
+//OUTPUT:
+//l
+//a
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		char c[] = str.toCharArray();
+		for(int i=0;j=c.length-1;i<c.length/2;i++,j--)
+		{
+			if(c[i]!=c[j]){
+				if(c[i]==c[j-1]&&(i!=j-1)){
+					System.out.print(c[j]);
+					break;
+				}
+				else{
+					System.out.print(c[i]);
+					break;
+				}
+			}
+		}
+	}
+}

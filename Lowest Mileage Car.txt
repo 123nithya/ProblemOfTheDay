@@ -1,0 +1,31 @@
+//The name and mileage of certain cars in passed as the input. The format is //CARNAME@MILEAGE and the input is as a single line, with each car information //separated by a space. The program must print the car with the lowest milage.
+//(Assume no two cars will have the lowest mileage).
+
+//INPUT:
+//Zantro@16.15 Zity@12.5 Gamry@9.8 
+
+//OUTPUT:
+//Gamry.
+
+SOLUTION:
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		String str1[] = str.split(" ");
+		float f = 99999.999f;
+		String s = "";
+		for(int i=0;i<str1.length;i++)
+		{
+			String str3[] = str1[i].split("@");
+			if(Float.parseFloat(str3[1])<f){
+				f = Float.parseFloat(str3[1]);
+				s = str3[0];
+			}
+		}
+		System.out.print(s);
+	}
+}
