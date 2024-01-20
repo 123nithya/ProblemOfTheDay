@@ -1,0 +1,52 @@
+/*
+	Leo loves the concept of gcd and lcm . in his assignment leo got the coding question where he has given an integer n. he needs to find the difference between the maximum lcm pair and maximum gcd pair in the range of 1 to n
+	Maximum GCD pair is the maximum value of GCD(a,b) where 1<=a<b<=n.
+	Maximum LCM pair is the maximum value of LCM(a,b) where 1<=a<b<=n.
+
+	more formally find the difference between maximumLCM(a,b) - maximumGCD(a,b)
+
+	INPUT: 
+	3
+
+	OUTPUT:
+	5
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int maxGCD = 0;
+		int maxLCM = 0;
+		for(int i=1;i<=n;i++)
+		{
+			for(int j=i+1;j<=n;j++)
+			{
+				int currentGCD = gcd(i,j);
+				int currentLCM = lcm(i,j);
+				
+				if(currentGCD>maxGCD){maxGCD = currentGCD;}
+				if(currentLCM>maxLCM){maxLCM = currentLCM;}
+			}
+		}
+		int diff = maxLCM - maxGCD;
+		System.out.print(diff);
+	}
+	public static int gcd(int a,int b)
+	{
+		if(b==0)
+		{
+			return a;
+		}
+		return gcd(b,Math.abs(a-b));
+	}
+	public static int lcm(int a,int b)
+	{
+		return (a/gcd(a,b))*b;
+	}
+}
