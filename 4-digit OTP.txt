@@ -28,9 +28,6 @@ class Main
 			if(i%2!=0)
 			{
 				int n = s[i]-'0';
-				/*
-					if it is String array it can be converted by using Integer.parseInt() method to convert the value into an integer. but here we use char array so we use s[i]-'0'
-				*/
 				int sqr = n*n;
 				str2+=Integer.toString(sqr);
 				/*
