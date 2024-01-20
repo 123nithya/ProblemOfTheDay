@@ -1,0 +1,50 @@
+/*
+	The program must accept an integer N in the form of string as the input. the program must extract out digits ar even positions, square and merge them. First 4 digits of the result will be the required OTP.Finally, the program must print the 4-digit OTP as the output. If it is not possible the program must print -1 as the output.
+
+	INPUT:
+	345675
+	
+	OUTPUT:
+	1636
+
+	EXPLANATION:
+	The squares of the digits present in the even positions of the integer 345675 are 16, 36 and 25.
+So after concatenating the squares 16, 36 and 25, 163625 is formed. Hence the output is 1636
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		char s[] = str.toCharArray();
+		String str2 = "";
+		for(int i=0;i<s.length;i++)
+		{
+			if(i%2!=0)
+			{
+				int n = s[i]-'0';
+				/*
+					if it is String array it can be converted by using Integer.parseInt() method to convert the value into an integer. but here we use char array so we use s[i]-'0'
+				*/
+				int sqr = n*n;
+				str2+=Integer.toString(sqr);
+				/*
+					Integer.toString() is used to return a Integer value in the format of String.
+				*/
+			}
+		}
+		if(str2.length()>=4)
+		{
+			System.out.print(str2.substring(0,5));
+		}
+		else
+		{
+			System.out.print("-1");
+		}
+	}
+}
