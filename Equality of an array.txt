@@ -1,0 +1,59 @@
+/*
+	Given two arrays A and B of equal size N, the task is to find if given arrays are equal or not. Two arrays are said to be equal if both of them contain same set of elements, arrangements (or permutation) of elements may be different though.
+Note : If there are repetitions, then counts of repeated elements must also be same for two array to be equal.
+
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int arr[] = new int[n];
+		for(int i=0;i<n;i++)
+		{
+			arr[i] = sc.nextInt();
+		}
+		int brr[] = new int[n];
+		for(int i=0;i<n;i++)
+		{
+			brr[i] = sc.nextInt();
+		}
+
+		boolean equal = check(arr,brr,n);
+
+		if(equal == true)
+		{
+			System.out.print("Arrays are equal");
+		}
+		else
+		{
+			System.out.print("Arrays aren't equal");
+		}
+	}
+	public static boolean check(int arr[],int brr[],int n)
+	{
+		Arrays.sort(arr);
+		Arrays.sort(brr);
+		int cnt = 0;
+		for(int i=0;i<n;i++)
+		{
+			if(arr[i]==brr[i])
+			{
+				cnt++;
+			}
+		}
+		if(cnt==n)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}	
+}

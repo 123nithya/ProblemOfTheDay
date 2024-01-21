@@ -1,0 +1,28 @@
+/*
+	The program must accept a string S of length 5 as the input.The program must print the first character once,the second character two times, the third character three times, fourth character 4 times and fifth character 5 times as the output.
+
+INPUT:
+match
+
+OUTPUT:
+maatttcccchhhhh
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		for(int i=0;i<5;i++)
+		{
+			for(int j=1;j<=i+1;j++)
+			{
+				System.out.print(str.charAt(i));
+			}
+		}
+	}
+}
