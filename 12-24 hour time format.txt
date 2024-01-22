@@ -1,0 +1,39 @@
+/*
+	The program must accept the time in 24hrs format.The program must print the time in 12hrs format as the output.
+
+INPUT:
+0000
+
+OUTPUT:
+12:00AM
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		int time = sc.nextInt();
+		int hour,min;
+		String period = "AM";
+		hour = time/100;
+		min = time%100;
+		if(hour==0)
+		{
+			hour = 12;
+		}
+		else if(hour==12)
+		{
+			period = period.replace('A','P');
+		}
+		else if(hour>12)
+		{
+			hour-=12;
+			period = period.replace('A','P');
+		}
+		System.out.printf("%.2d:%.2d %s",hour,min,period);
+	}
+}
