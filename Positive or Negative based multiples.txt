@@ -1,0 +1,39 @@
+/*
+	Accept an integer A as the input. if A is positive integer then print the first five multiples of the unit digit of A as the output. If A is a negative integer then print first 10 multiples of the unit digit if A as the output.
+
+INPUT:
+46.
+-53.
+
+OUTPUT:
+6 12 18 24 30.
+3 6 9 12 15 18 21 24 27 302.
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		if(n>0)
+		{
+			int val = n%10;
+			for(int i=1;i<=5;i++)
+			{
+				System.out.print((val*i)+" ");
+			}
+		}
+		else
+		{
+			int val = (n%10)*(-1);
+			for(int i=1;i<=10;i++)
+			{
+				System.out.print((val*i)+" ");
+			}
+		}
+	}
+}
