@@ -1,0 +1,38 @@
+/*
+	Accept two integers x and Y as the input and print all the integers from the smallest integer to the largest integer as the output.
+
+INPUT:
+10 5
+
+OUTPUT:
+5 6 7 8 9 10
+
+INPUT: 
+7 10
+
+OUTPUT:
+7 8 9 10
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		int n1 = sc.nextInt();
+		int n2 = sc.nextInt();
+		if(n2<n1)
+		{
+			int temp = n2;
+			n2 = n1;
+			n1 = temp;
+		}
+		for(int i=n1;i<=n2;i++)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}

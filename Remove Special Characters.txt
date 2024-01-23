@@ -1,0 +1,44 @@
+/*
+	The program must accept a string S as the input. The program must remove all the special characters from the string S. Then the program must print the modified string S as the output.
+
+INPUT:
+**skillrack#123***
+
+OUTPUT:
+skillrack123
+
+INPUT:
+*ke@##123KEy
+
+OUTPUT:
+ke123KEy
+*/
+
+SOLUTION:
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		StringBuilder sb = new StringBuilder();
+		for(int i=0;i<str.length();i++)
+		{
+			char ch = str.charAt(i);
+			if(Character.isLetter(ch))
+			{
+				sb.append(ch);
+			}
+			else if(Character.isDigit(ch))
+			{
+				sb.append(ch);
+			}
+			else
+			{
+				continue;
+			}
+		}
+		System.out.print(sb.toString());
+	}
+}
