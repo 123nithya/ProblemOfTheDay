@@ -1,0 +1,46 @@
+/*
+	The program must accept two integers N1 and  N2 as the input. The program must print the desire pattern as shown in the example ip/op section.
+
+INPUT:
+5 8
+
+OUTPUT:
+5 6 7 8
+5 6 7
+5 6
+5
+
+
+INPUT:
+1 5
+
+OUTPUT:
+1 2 3 4 5
+1 2 3 4
+1 2 3
+1 2
+1
+
+*/
+
+SOLUTION:
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		int n1 = sc.nextInt();
+		int n2 = sc.nextInt();
+		for(int i=1;i<=n2;i++)
+		{
+			for(int j=n1;j<=n2;j++)
+			{
+				System.out.print(j+" ");
+			}
+			System.out.println();
+			n2--;
+		}
+	}
+}
+
