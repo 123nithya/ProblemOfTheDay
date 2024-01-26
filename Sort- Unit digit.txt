@@ -1,0 +1,39 @@
+/*
+	The program must accept three integers X,Y,Z as the input. Two of these three integers will have same unit digit. The program must print the smallest integer among the integers which are having the same unit digit.Then the program must print the largest integer among the integers which are having the same unit digit.Finally, the program must print the remaining integer as the output.
+
+INPUT:
+72 29 12
+
+10 5 90
+
+OUTPUT:
+12 72 29
+
+10 90 5
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		int x = sc.nextInt();
+		int y = sc.nextInt();
+		int z = sc.nextInt();
+		if(x%10 == y%10)
+		{
+			System.out.print((x<y?x:y)+" "+(x>y?x:y)+" "+z);
+		}
+		else if(y%10 == z%10)
+		{
+			System.out.print((y<z?y:z)+" "+(y>z?y:z)+" "+x);
+		}
+		if(x%10 == z%10)
+		{
+			System.out.print((x<z?x:z)+" "+(x>z?x:z)+" "+y);
+		}
+	}
+}

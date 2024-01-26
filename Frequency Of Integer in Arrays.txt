@@ -1,0 +1,59 @@
+/*
+	A common problem is statistics is that of generating frequency distribution of the given data. Assuming that the data consists of n positive integers in the range 1 to 25, write a program that prints the number of times each integer occurs in the data.
+
+INPUt FORMAT:
+The first line of the input consists of the value of n.
+The next n inputs are the array elements.
+
+OUPUT FORMAT:
+The output prints the frequency of each data.
+
+INPUT:
+8
+10 20 20 10 10 20 5 20
+
+OUTPUT:
+10 3
+20 4 
+5 1
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int arr[] = new int[n];
+		for(int i=0;i<n;i++)
+		{
+			arr[i] = sc.nextInt();
+		}
+		cntFrequency(arr,n);
+	}
+	public static void cntFrequency(int arr[], int n)
+	{
+		boolean visited[] = new boolean[n];
+		Arrays.fill(visited,false);	
+		for(int i=0;i<n;i++)
+		{
+			if(visited[i] == true)
+			{
+				continue;
+			}
+			int cnt = 0;
+			for(int j=i+1;j<n;j++)
+			{
+				if(arr[i] == arr[j])
+				{
+					visited[j] == true;
+					cnt++;;
+				}
+			}
+			System.out.print(arr[i]+" "+cnt); 
+		}
+	}
+}
