@@ -1,0 +1,38 @@
+/*
+	Accept a String S as the input and print all the vowel in S as the output. If there is no vowel in S then the program must print -1 as the output.
+
+INPUT: 
+SkillRack
+Sky
+
+OUTPUT:
+ia
+-1
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		char ch[] = str.toCharArray();
+		String vowel = "aeiouAEIOU";
+		boolean flag = false;
+		for(char c:ch)
+		{
+			if(vowel.indexOf(c)!=-1)
+			{
+				System.out.print(c);
+				flag = truel
+			}
+		}
+		if(!flag)
+		{
+			System.out.print("-1");
+		}
+	}
+}
