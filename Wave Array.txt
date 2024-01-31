@@ -1,0 +1,51 @@
+/*
+	Given a sorted array arr[] of distinct integers.Sort the array into wave-like array.
+Arrange the elements into a sequence such that arr[1]>=arr[2]<=arr[3]>=arr[4]...
+
+INPUT:
+5
+arr[] = {1,2,3,4,5}
+
+OUTPUT:
+2,1,4,3,5.
+
+INPUT:
+6
+arr[] = {2,4,7,8,9,10}
+
+OUTPUT:
+4,2,8,7,10,9.
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int arr[] = new int[n];
+		for(int i=0;i<n;i++)
+		{
+			arr[i] = sc.nextInt();
+		}
+		sortWave(arr,n);
+		for(int i:arr)
+			System.out.print(i+" ");
+	}
+	void swap(int arr[], int a, int b)
+    	{
+        	int temp = arr[a];
+        	arr[a] = arr[b];
+        	arr[b] = temp;
+    	}
+ 
+    
+    	void sortInWave(int arr[], int n)
+    	{ 
+        	for (int i=0; i<n-1; i += 2)
+            		swap(arr, i, i+1);
+    	}
+}

@@ -1,0 +1,27 @@
+/*
+	The program must accept a string S as the input. The program must print the first two characters in S and then print the last two characters in S as the output.
+
+INPUT:
+programming
+
+calculation
+
+OUTPUT:
+prng
+
+caon
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		int len = str.length();
+		System.out.print((str.substring(0,2))+""+(str.substring(len-2,len)));
+	}
+}
