@@ -1,0 +1,30 @@
+/*
+	A string S is passed as the input. A positive integer X is also passed as the input.The program must print the characters at position which are multiples of X.
+
+INPUT:
+abcdexyzwqpoolj
+5
+
+OUTPUT:
+eqj
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		int n = sc.nextInt();
+		for(int i=1;i<=str.length();i++)
+		{
+			if(i%5==0)
+			{
+				System.out.print(str.charAt(i-1));
+			}
+		}
+	}
+}
