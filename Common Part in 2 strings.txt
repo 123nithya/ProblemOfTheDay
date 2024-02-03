@@ -1,0 +1,31 @@
+/*
+	Two string values s1 and s2 are passed as the input. The last portion of s1 will be the first portion of s2. The program must print this common part in s1 and s2.
+
+INPUT:
+bridge gear.
+
+OUTPUT:
+ge.
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		String s1 = sc.nextLine();
+		String s2 = sc.nextLine();
+		String s3 = "";
+		for(int i=0;i<s1.length();i++)
+		{
+			s3 = s1.substring(i,s1.length());
+			if(s2.startsWith(s3))
+			{
+				System.out.print(s3);
+			}
+		}
+	}
+}

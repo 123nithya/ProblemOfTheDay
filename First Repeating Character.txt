@@ -1,0 +1,46 @@
+/*
+	A string s is passed as the input. S has at least one repeating character.The program must print the first repeating character C.
+
+INPUT: 
+abcdexyzbwqpoolj
+
+OUTPUT:
+b
+
+INPUT:
+k+axjAK_SjasYDQWD08QW+UY990
+
+OUTPUT:
++
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		System.out.print(repeatingCharacter(str));
+	}
+	public static char repeatingCharacter(String str)
+	{
+		int n = str.length();
+		char ans = ' ';
+		int idx = Integer.MAX_VALUE;
+		Set<Character> hs = new HashSet<>();
+		for(int i=n-1;n>=0;i++)
+		{
+			char temp = str.charAt(i);
+			if(hs.contains(temp) && i<idx)
+			{
+				idx = i;
+				ans = temp;
+			}
+			set.add(temp);
+		}
+		return ans;
+	}
+}
