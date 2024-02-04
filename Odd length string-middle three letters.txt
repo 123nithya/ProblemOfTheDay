@@ -1,0 +1,23 @@
+/*
+	An odd length string s is passed as the input.The middle three letters of S must be printed as the output.
+
+INPUT:
+level
+OUTPUT:
+eve
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		char str[] = sc.next().toCharArray();
+		int len = str.length;
+		int mid = len/2;
+		System.out.print(str[mid-1]+""+str[mid]+""+str[mid+1]);
+	}
+}

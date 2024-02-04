@@ -1,0 +1,41 @@
+/*
+	A string value s is passed as the input. The program must print the first letter of each word in S in upper case.
+
+INPUT: 
+she is happy.
+
+OUTPUT:
+She Is Happy.
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		char ch [] = str.toCharArray();
+		int len = ch.length;
+		boolean flag = true;
+		for(int i=0;i<len;i++)
+		{
+			if(Character.isLetter(ch[i])
+			{
+				if(flag)
+				{
+					ch[i] = Character.toUpperCase(ch[i]);
+					flag = false;
+				}
+			}
+			else
+			{
+				flag = true;
+			}
+		}
+		str = String.valueOf(ch);
+		System.out.print(str);
+	}
+}
