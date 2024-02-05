@@ -1,0 +1,35 @@
+/*
+	Given a string S and 2 characters A,B the program must print the number of occurrences where A is followed by B.
+
+INPUT:
+malayalam
+a
+l
+
+OUTPUT:
+2
+*/
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		char ch1 = sc.next().charAt(0);
+		char ch2 = sc.next().charAt(0);
+		char ch[] = str.toCharArray();
+		int cnt = 0;
+
+		for(int i=0;i<ch.length;i++)
+		{
+			if(ch[i]==ch1 && ch[i+1]==ch2)
+			{
+				cnt++;
+			}
+		}
+		System.out.print(cnt);
+	}
+}
