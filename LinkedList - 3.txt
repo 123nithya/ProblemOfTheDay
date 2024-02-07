@@ -1,0 +1,51 @@
+/*
+	Using Library ArrayList as the list implementation, input N integers from standard input and store sequentially in the List. In place, reverse the list by swapping the elements from the ends inwards and print the list after each swap.
+
+	1. Take a number, N>0 as input
+	2. Accept N integers as input
+	3. Add the number to the list
+	4. Reverse the list in place by swapping elements starting from the ends inward.
+	5. Print the list after each swap operation
+
+INPUT:
+4
+14 32 65 41
+
+OUTPUT:
+[41,32,65,14]
+[41,65,32,14]
+*/
+
+SOLUTION:
+
+// You are using Java
+import java.util.*;
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for(int i=0;i<n;i++)
+        {
+            int num = sc.nextInt();
+            list.add(num);
+        }
+        int start = 0;
+        int end = list.size()-1;
+        
+        while(start<end)
+        {
+            // int temp = list.get(start);
+            // list.set(start,list.get(end));
+            // list.set(end,temp);
+            Collections.swap(list,start,end);
+            
+            System.out.println(list);
+            
+            start++;
+            end--;
+        }
+    }
+}

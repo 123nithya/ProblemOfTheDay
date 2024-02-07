@@ -1,0 +1,95 @@
+/*
+	Create a class ItemType with the following attributes:
+		Attribute                DataType
+		name			  String
+		deposit		          Double
+		costPerDay                Double
+
+Mark all of them as private and included appropriate getter and setters and also include constructors. And override the toString method to print details of the ItemType object.
+
+All class names,attribute names and method names should be the same as specified in the problem statement.
+
+NOTE:
+
+use "%-20s%-20s%-20s" for formatting output in tabular format, display double values with 1 decimal place.
+
+INPUT:
+
+3
+Laptop
+10000
+250
+Light
+1000
+50
+Fan
+1000
+100
+
+OUTPUT:
+Name			Deposit			Cost Per Day
+Laptop			10000.0			250.0
+Light			1000.0			50.0
+Fan			1000.0			100.0
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+    static class ItemType
+    {
+        private String name;
+        private double deposit;
+        private double cost;
+        
+        public ItemType(){
+            
+        }
+        
+        public ItemType(String name, double deposit,double cost)
+        {
+            this.name = name;
+            this.deposit = deposit;
+            this.cost = cost;
+        }
+        
+        public String getName(){
+            return name;
+        }
+        public double getDeposit(){
+            return deposit;
+        }
+        public double getCost(){
+            return cost;
+        }
+        
+        @Override
+        public String toString()
+        {
+            return String.format("%-20s%-20s%-20s",name,deposit,cost);
+        }
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = Integer.parseInt(sc.nextLine());
+        ArrayList<ItemType> al = new ArrayList<>();
+        for(int i=0;i<n;i++)
+        {
+            String name = sc.nextLine();
+            double deposit = Double.parseDouble(sc.nextLine());
+            double cost = Double.parseDouble(sc.nextLine());
+            
+            ItemType it = new ItemType(name,deposit,cost);
+            al.add(it);
+        }
+        System.out.printf("%-20s%-20s%-20s","Name","Deposit","Cost Per Day");
+        System.out.println();
+        for(int i=0;i<al.size();i++)
+        {
+            System.out.println(al.get(i));
+        }
+    }
+}

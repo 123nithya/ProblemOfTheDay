@@ -1,0 +1,228 @@
+/*
+	Create a class named Book with the following private attributes
+
+		id-Integer
+		name-String
+		author-String
+		publisher-String
+		quantity-Integer
+
+Include getters and setters.Include default and parametrised constructors. The format for the parametrized constructor is:
+	Public Book(int id, String name, String author, String publisher,int quantity)
+
+Create a Main class and in the main method get the details of the book and store them in the linked hash set.
+
+Display all the book details and search for a book name in the set.
+
+INPUT:
+2
+1
+let us c
+yashwanth
+BPB
+8
+2
+Operating Systems
+galvin
+Wiley
+6
+operating systems
+
+
+OUTPUT:
+1 let us c yashwanth BPB 8
+2 operating systems galvin wiley 6
+operating systems is present in the set.
+*/
+
+SOLUTION:
+
+import java.util.*;
+
+class Book
+{
+    private int id;
+    private String name;
+    private String author;
+    private String publisher;
+    private int quantity;
+    
+    public Book(){
+        
+    }
+    
+    public Book(int id, String name,String author,String publisher, int quantity)
+    {
+        this.id = id;
+        this.name = name;
+        this.author = author;
+        this.publisher = publisher;
+        this.quantity = quantity;
+    }
+    
+    public int getId()
+    {
+        return id;
+    }
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+    
+    public String getName()
+    {
+        return name;
+    }
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+    
+    public String getAuthor()
+    {
+        return author;
+    }
+    public void setAuthor(String author)
+    {
+        this.author = author;
+    }
+    
+    public String getPub()
+    {
+        return publisher;
+    }
+    public void setPub(String publisher)
+    {
+        this.publisher = publisher;
+    }
+    
+public int getQuant()
+    {
+        return quantity;
+    }
+    public void setQuant(int quantity)
+    {
+        this.quantity = quantity;
+    }
+}
+
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n =Integer.parseInt(sc.nextLine());
+        String arr[] = new String[n];
+        for(int i=0;i<n;i++)
+        {
+            int id = Integer.parseInt(sc.nextLine());
+            String name = sc.nextLine();
+            arr[i] = name;
+            String author = sc.nextLine();
+            String publisher = sc.nextLine();
+            int quantity =Integer.parseInt(sc.nextLine());
+            Book myBook = new Book(id,name,author,publisher,quantity);
+            System.out.println(id+" "+name+" "+author+" "+publisher+" "+quantity);
+        }
+        String search = sc.nextLine();
+        boolean flag = false;
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i].equals(search))
+            {
+                flag = true;
+                break;
+            }
+        }
+        if(flag==true)
+        {
+            System.out.print(search+" is present in the set");
+        }
+        else
+        {
+            System.out.print(search+" is not present in the set");
+        }
+    }
+}
+
+					(OR)
+
+import java.util.*;
+class Main
+{
+    static class Book
+    {
+        private int id;
+        private String name;
+        private String author;
+        private String publisher;
+        private int quantity;
+        
+        public Book(int id,String name,String author,String publisher,int quantity)
+        {
+            this.id=id;
+            this.name = name;
+            this.author = author;
+            this.publisher = publisher;
+            this.quantity = quantity;
+        }
+        
+        public int getId(){
+            return id;
+        }
+        public String getName(){
+            return name;
+        }
+        public String getAuthor(){
+            return author;
+        }
+        public String getPublisher(){
+            return publisher;
+        }
+        public int getQuant(){
+            return quantity;
+        }
+        @Override
+        public String toString(){
+            return id+" "+name+" "+author+" "+publisher+" "+quantity;
+        }
+    }
+    
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = Integer.parseInt(sc.nextLine());
+        ArrayList<Book> al = new ArrayList<>();
+        for(int i=0;i<n;i++)
+        {
+            int id = Integer.parseInt(sc.nextLine());
+            String name = sc.nextLine();
+            String author = sc.nextLine();
+            String publisher = sc.nextLine();
+            int quant = Integer.parseInt(sc.nextLine());
+            
+            Book b = new Book(id,name,author,publisher,quant);
+            al.add(b);
+        }
+        for(int i=0;i<al.size();i++)
+        {
+            System.out.println(al.get(i));
+        }
+        String search = sc.nextLine();
+        boolean flag = false;
+        for(Book book:al){
+            if(book.getName().equals(search)){
+                flag =true;
+                break;
+            }
+        }
+        if(flag)
+        {
+            System.out.print(search+" is present in the set");
+        }
+        else
+        {
+            System.out.print(search+" is not present in the set");
+        }
+    }
+}
