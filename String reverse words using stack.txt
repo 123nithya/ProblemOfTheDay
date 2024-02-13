@@ -1,0 +1,37 @@
+/*
+	Radha has been given a line of text and has been asked to reverse the given string without reversing the individual words using stack.
+
+INPUT:
+Porgramming is creative.
+
+OUTPUT:
+creative is Programming.
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		System.out.print(reverseString(str));
+	}
+	public static String reverseString(Strign str)
+	{
+		String ch[] = str.split(" ");
+		Stack<String> stack = new Stack<>();
+		for(String word:ch)
+		{
+			stack.push(word);
+		}
+		StringBuilder sb = new StringBuilder();
+		while(!stack.isEmpty())
+		{
+			sb.append(stack.pop()).append(" ");
+		}
+		return sb.tostring().trim();
+	}
+}
