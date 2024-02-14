@@ -1,0 +1,48 @@
+/*
+	Given an array, the task is to find the difference between highest occurrence and lowest occurrence of any number in an array.
+NOTE:
+if only one type of element is present in the array return 0
+
+
+INPUT:
+arr[] = [1,2,3]
+
+OUTPUT:
+1
+
+EXPLANATION:
+Lowest occurring element (1) occurs once.
+Highest occurring element (2) occurs 2 times
+
+*/
+SOLUTION:
+
+
+(only main logic)
+
+class Solution{
+	public long findDifference(long arr[],long n)
+	{
+		Arrays.sort(arr);
+        	long max = arr[(int)(n-1)];
+        	long freq[] = new long[(int)max+1];
+        	for(int i=0;i<n;i++)
+        	{
+            		freq[(int)arr[i]]++;
+        	}
+        
+        	long maxi = Long.MIN_VALUE;
+        	long mini = Long.MAX_VALUE;
+        
+        	for(int i=0;i<freq.length;i++)
+        	{
+            		if(freq[i]>0)
+            		{
+                		maxi = Math.max(maxi,freq[i]);
+                		mini = Math.min(mini,freq[i]);
+            		}
+        	}
+        	long diff = maxi-mini;
+        	return diff;
+	}
+}
