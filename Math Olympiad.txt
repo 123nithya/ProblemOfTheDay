@@ -1,0 +1,43 @@
+/*
+	The KISA Math olypiad is held annually across all the schools to identify and encourage the mathematical creativity of children of all grades. Samuel is a little genius in math in Grade 5 who was participating in the contest. The question bank of the contest contains 35 questions and lasts for a duration of 1 hour.Samuel was so confident in all the questions but he seemed stuck on one question.He needs your help in answering that question so that he could score full marks and get a Gold medal in the event.The question he needs your help with is given in the problem statement.
+
+PROBLEM STATEMENT:
+
+Write a recursive method to find the mth summation of first n natural numbers.
+The mth summation of first n natural numbers is defined as follows
+
+if m>1
+	Sum(n,m) = Sum(Sum(n,m-1),1)
+else
+	Sum(n,m) = Sum of first n natural numbers.
+
+
+INPUT:
+5 3
+OUTPUT:
+7260
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+    public static int summation(int n,int m)
+    {
+        if(m==1)
+        {
+            return (n*(n+1)/2);
+        }
+        int sum = summation(n,m-1);
+        return (sum*(sum+1)/2);
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int result = summation(n,m);
+        System.out.print(result);
+    }
+}
