@@ -1,0 +1,36 @@
+/*
+	A naughty kid climbing stairs with N steps. From any step, he cantake 1 step or 2 steps at a time. Find the total distinct ways of reaching.
+
+INPUT:
+2
+
+OUTPUT:
+2
+
+INPUT:
+4
+
+OUTPUT:
+5
+*/
+
+SOLUTION:
+
+import java.util.Scanner;
+class Main
+{
+	static int ways(int n)
+    	{
+    		if(n<=3)
+    		{
+    	    		return n;
+    		}
+    		return ways(n-1)+ways(n-2);
+    	}
+	public static void main(String args[])
+    	{
+		Scanner s = new Scanner(System.in);
+      		int n = s.nextInt();
+      		System.out.print(ways(n)) ;
+    	}
+}

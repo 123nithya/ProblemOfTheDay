@@ -1,0 +1,35 @@
+/*
+	Given a decimal number as input, we need to write a program to convert the given decimal number into an equivalent binary number. 
+
+Input : 7                                                         
+Output :111
+
+Input :10
+Output :1010
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+    public static long binaryNum(long n)
+    {
+        if(n==0)
+        {
+            return 0;
+        }
+        else
+        {
+            return (n%2+10*binaryNum(n/2));
+        }
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        long n = sc.nextLong();
+        long result = binaryNum(n);
+        System.out.print("The Binary value of decimal number "+n+" is : "+result);
+    }
+}
+
