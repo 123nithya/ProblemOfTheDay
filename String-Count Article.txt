@@ -1,0 +1,33 @@
+/*
+	A string S is passed as the input. The program must print the number of articles in S. In java
+
+INPUT:
+The quick brown fox jumps over an lazy dog.
+
+OUTPUT:
+2
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		int articleCnt = countArticle(str);
+		System.out.print(articleCnt);
+	}
+	public static int countArticle(String str)
+	{
+		String article = "\\b(a|an|the)b\\"
+		Pattern pat = Pattern.compile(article,Pattern.CASE_INSENSITIVE);
+		Matcher match = pat.match(str);
+		int cnt = 0;
+		while(match.find())
+			{cnt++;}
+		return cnt;
+	}
+}
