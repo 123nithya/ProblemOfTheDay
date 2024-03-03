@@ -1,0 +1,174 @@
+/*
+	Rakesh wants to perform certain operations in an array to clear the coding round.Write a program to obtain a matrix and perform the following operations:
+
+	(a) Sum of diagonal elements of a matrix.
+	(b) Sum of row elements of 2D matrix.
+	(c) Sum of column elements of 2D matrix.
+	(d) Identify if the entered matrix in magic square or not.
+	(e) To obtain determinant.
+	(f) To obtain the transpose of a given matrix.
+
+CODE CONSTRAINT:
+2<=M,N<=3
+*/
+
+SOLUTION:
+import java.util.*;
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int arr[][] = new int[n][m];
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        if(n<=3 && 2<=m)
+        {
+            int d_sum = 0;
+            for(int i=0;i<n;i++)
+            {
+                for(int j=0;j<m;j++)
+                {
+                    if(i==j)
+                    {
+                        d_sum+=arr[i][j];
+                    }
+                }
+            }
+            System.out.println("The sum of");
+            System.out.println("Diagonal elements : "+d_sum);
+        
+            int r_sum = 0;
+            for(int i=0;i<n;i++)
+            {
+                for(int j=0;j<m;j++)
+                {
+                    r_sum += arr[i][j];
+                }
+                System.out.println("Row "+(i+1)+" : "+r_sum);
+                r_sum = 0;
+            }
+        
+            int c_sum = 0;
+            for(int i=0;i<m;i++)
+            {
+                for(int j=0;j<n;j++)
+                {
+                    c_sum += arr[j][i];
+                }
+                System.out.println("Column "+(i+1)+" : "+c_sum);
+                c_sum = 0;
+            }
+            
+            if(isMagicSquare(arr))
+            {
+                System.out.println("Magic square");
+            }
+            else
+            {
+                System.out.println("Not a magic square");
+            }
+            int brr[][] = new int[n][m];
+            transpose(arr,brr,n,m);
+            System.out.println("Transpose : ");
+            for(int i=0;i<n;i++)
+            {
+                for(int j=0;j<m;j++)
+                {
+                    System.out.print(brr[i][j]+" ");
+                }
+                System.out.println();
+            }
+            
+            Main main = new Main();
+            int result = main.determinant(arr);
+            System.out.print("Determinant : "+result);
+        }
+        else
+        {
+            System.out.print("Invalid Input");
+        }
+    }
+    
+    public static int determinant(int arr[][])
+    {
+        int result = 0;
+        if(arr.length == 1)
+        {
+            result = arr[0][0];
+            return result;
+        }
+        if(arr.length == 2)
+        {
+            result = arr[0][0]*arr[1][1]-arr[0][1]*arr[1][0];
+            return result;
+        }
+        for(int i=0;i<arr[0].length;i++)
+        {
+            int temp[][] = new int[arr.length-1][arr[0].length-1];
+            for(int j=1;j<arr.length;j++)
+            {
+                for(int k=0;k<arr[0].length;k++)
+                {
+                    if(k<i)
+                    {
+                        temp[j-1][k] = arr[j][k];
+                    }
+                    else if(k>i)
+                    {
+                        temp[j-1][k-1] = arr[j][k];
+                    }
+                }
+            }
+            result+=arr[0][i]*Math.pow(-1,(int)i)*determinant(temp);
+        }
+        return result;
+    }
+    
+    public static void transpose(int arr[][],int brr[][],int n,int m)
+    {
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                brr[i][j] = arr[j][i];
+            }
+        }
+    }
+    
+    public static boolean isMagicSquare(int arr[][])
+    {
+        int n = arr.length;
+        int sum1 = 0,sum2 = 0;
+        for(int i=0;i<n;i++)
+        {
+            sum1+=arr[i][i];
+            sum2+=arr[i][n-1-i];
+        }
+        if(sum1!=sum2)
+        {
+            return false;
+        }
+        for(int i=0;i<n;i++)
+        {
+            int row = 0,col = 0;
+            for(int j=0;j<n;j++)
+            {
+                row+=arr[i][j];
+                col+=arr[j][i];
+            }
+            if(row!=col || col!=sum1)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
