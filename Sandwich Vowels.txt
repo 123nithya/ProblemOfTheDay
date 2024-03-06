@@ -1,0 +1,57 @@
+/*
+	For a given string S, comprising of only lowercase English alphabets, eliminate the vowels from the string that occur between two consonants(sandwiched between two immediately adjacent consonants). Print the updated string on a new line.
+
+Example 1:
+
+Input : S = "bab"
+Output : bb
+Explanation:
+a is a vowel occuring between two consonants i.e. b. 
+Hence the updated string eliminates a.
+
+Example 2:
+
+Input : S = "ceghij"
+Output : cghj
+
+*/
+
+SOLUTION:
+
+char[] chArray = str.toCharArray();
+
+        for(int i=1; i<chArray.length-1; i++)
+
+        {
+
+            if(isVowel(chArray[i]) && !isVowel(chArray[i-1]) && !isVowel(chArray[i+1]))
+
+            {
+
+                chArray[i] = '#';
+
+            }
+
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        for(char ch : chArray)
+
+        {
+
+            if(ch != '#')
+
+            sb.append(ch);
+
+        }
+
+        return new String(sb);
+
+    }     
+
+    public static boolean isVowel(char c)
+
+    {
+
+        return c=='a' || c=='e' || c=='i' || c=='o' || c=='u';
