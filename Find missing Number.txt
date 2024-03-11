@@ -1,0 +1,41 @@
+/*
+	Rohit has an array of integers, and he wants to find the missing number in the array.The array initially contains all the numbers from 1 to num+1, but one number is missing. rohit needs to determine and print the missing number.
+	Help him write a program the missing number.
+*/
+
+SOLUTIION:
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int arr[] = new int[n];
+		for(int i=0;i<n;i++)
+			arr[i] = sc.nextInt();
+		Arrays.sort(arr);
+		findMissingNumb(arr,n);
+	}
+	public static void main(String[] args)
+	{
+		int temp[] = new int[n+1];
+		for(int i=0;i<n;i++)
+		{
+			temp[i] = 0;
+		}
+		for(int i=0;i<n;i++)
+		{
+			temp[arr[i]-1] = 1;
+		}
+		int ans = 0;
+		for(int i=0;i<=n;i++)
+		{
+			if(temp[i] == 0)
+			{
+				ans = i+1;
+			}
+		}
+		System.out.print(ans);
+	}
+}
