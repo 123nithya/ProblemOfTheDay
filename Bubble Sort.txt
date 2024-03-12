@@ -1,0 +1,53 @@
+/*
+	Given an Integer N and a list arr. Sort the array using bubble sort algorithm.
+Example 1:
+
+Input: 
+N = 5
+arr[] = {4, 1, 3, 9, 7}
+Output: 
+1 3 4 7 9
+Example 2:
+
+Input:
+N = 10 
+arr[] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1}
+Output: 
+1 2 3 4 5 6 7 8 9 10
+*/
+
+SOLUTION:
+import java.util.*;
+class Main{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int arr[] = {64,34,25,12,22,11,90};
+        int n = arr.length;
+        bubbleSort(arr,n);
+        System.out.print("Sorted Array : ");
+        printArray(arr,n);
+    }
+    public static void bubbleSort(int arr[],int n)
+    {
+        for(int i=0;i<n-1;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                if(arr[i]>arr[j])
+                {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+    }
+    public static void printArray(int arr[],int n)
+    {
+        for(int i=0;i<n;i++)
+        {
+            System.out.print(arr[i]+" ");
+        }
+    }
+}
