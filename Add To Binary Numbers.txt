@@ -1,0 +1,37 @@
+/*
+	Write a Java program to add two binary numbers.
+
+In digital electronics and mathematics, a binary number is a number expressed in the base-2 numeral system or binary numeral system. This system uses only two symbols: typically 1 (one) and 0 (zero).
+
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		long b1 = sc.nextLong();
+		long b2 = sc.nextLong();
+		int i = 0,rem = 0;
+		int sum[] = new int[10];
+		while(b1!=0 || b2 !=0)
+		{
+			sum[i++] = (int)((b1%10 + b2%10 + rem)%2);
+			rem = (int)((b1%10 + b2%10 + rem)/2);
+			b1/=10; b2/=10;
+		}
+		if(rem!=0)
+		{
+			sum[i++] = rem;	
+		}
+		i--;
+		System.out.print("Total = ");
+		while(i>=0){
+			System.out.print(sum[i--]);
+		}
+		System.out.println();
+	}
+}
