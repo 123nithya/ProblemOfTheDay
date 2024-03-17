@@ -1,0 +1,22 @@
+/*
+	Write a Java program to convert a binary number to a decimal number.
+*/
+
+SOLUTION:
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		long binary = sc.nextLong();
+		long decimal = 0,j = 1, rem;
+		while(binary!=0){
+			rem = binary%10;
+			decimal = decimal+rem*j;
+			j*=2;
+			binary/=10;
+		}
+		System.out.print(decimal);
+	}	
+}
