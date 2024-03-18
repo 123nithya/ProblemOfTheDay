@@ -1,0 +1,27 @@
+/*
+	Write a Java program to convert an integer number to a binary number.
+*/
+
+SOLUTION:
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Input a Decimal Number: ");
+		int num = sc.nextInt();
+		int quotient, i = 1;
+		quotient = num;
+		int binaryNum[] = new int[50];
+		while(quotient!=0)
+		{
+			binaryNum[i++] = quotient%2;
+			quotient /= 2;
+		}
+		System.out.print("Binary Number is : ");
+		for(int j=i-1;j>0;j--)
+			System.out.print(binaryNum[j]);
+		System.out.println();
+	}
+}
