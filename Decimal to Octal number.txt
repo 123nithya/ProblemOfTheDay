@@ -1,0 +1,28 @@
+/*
+	Write a Java program to convert a decimal number to an octal number.
+*/
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		int deci = sc.nextInt();
+		int temp = deci;
+		int oct[] = new int[10];
+		int idx = 0;
+		while(temp!=0)
+		{
+			oct[idx++] = temp%8;
+			temp/=8;
+		}
+		for(int j=idx-1;j>=0;j--)
+		{
+			System.out.print(oct[j]);
+		}
+		System.out.println();
+	}
+}
