@@ -1,0 +1,44 @@
+/*
+	Given an array arr of size N, the task is to count the number of elements of the array which are Fibonacci numbers
+
+Example 1:
+
+Input: N = 9, arr[] = {4, 2, 8, 5, 20, 1, 
+                              40, 13, 23}
+Output: 5
+Explanation: Here, Fibonacci series will 
+be 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55. 
+Numbers that are present in array are 
+2, 8, 5, 1, 13
+Example 2:
+
+Input: N = 4, arr[] = {4, 7, 6, 25} 
+Output: 0
+Explanation: No Fibonacci number in 
+this array.
+
+*/
+
+SOLUTION:
+class Solution
+{
+	int checkFib(long arr[],int N)
+	{
+		Arrays.sort(arr);
+		ArrayList<Integer> al = new ArrayList<>();
+		al.add(0);
+		al.add(1);
+		int max = (int)arr[N-1];
+		for(int i=2;i<=max;i++)
+		{
+			al.add(al.get(i-2)+al.get(i-1));
+		}
+		int cnt = 0;
+		for(int i=0;i<N;i++)
+		{
+			if(al.contains((int)arr[i]))
+				cnt++;
+		}
+		return cnt;
+	}
+}
