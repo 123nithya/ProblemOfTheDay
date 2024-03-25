@@ -1,0 +1,53 @@
+/*
+	Given an array of N integers arr[ ], the task is to count the minimum number of operations to equalize the array i.e. to make all array elements equal.
+In one operation, you can choose two elements arr[i] and arr[j] such that arr[i] > arr[j] and change them to arr[i] = arr[i] - 1 and arr[j] = arr[j] + 1.
+If it is impossible to equalize the array print "-1".
+
+Example 1:
+
+Input:
+N = 5
+arr[] = {1, 3, 2, 0, 4}
+Output:  3
+Explanation: We can equalize the array by 
+making value of all elements equal to 2. 
+To achieve this we need to do minimum 3 
+operations:
+1. arr[0]++ and arr[1]--
+2. arr[3]++ and arr[4]--
+3. arr[3]++ and arr[4]--
+Example 2:
+
+Input:
+N = 3
+arr[] = {1, 7, 1}
+Output:  4
+*/
+
+SOLUTION:
+class Solution
+{
+	long minOperation(long arr[],int n)
+	{
+		long sum = 0;
+		long avg = 0;
+		for(long i:arr)
+		{
+			sum+=i;
+		}
+		avg = (long)(sum/n);
+		long result = 0;
+		if(sum!=(avg*n))
+		{
+			return -1;
+		}
+		for(long i:arr)
+		{
+			if(i<avg)
+			{
+				result+=(avg-i);
+			}
+		}
+		return result;
+	}
+}
