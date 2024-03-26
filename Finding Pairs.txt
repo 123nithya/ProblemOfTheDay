@@ -1,0 +1,44 @@
+/*
+	Your are given N pairs of alphabets and a string S of size M. Find the number of occurence of the alphabet pairs in S.
+
+Example 1:
+
+Input :
+N = 3
+Arr[] = {('A','G'),('d','i'),('P','o')}
+M = 5
+S = "APiod"
+Output : 2
+Explanation:
+There are 3 pairs (A G), (d i) & (P o)
+and a string APiod of length 5. Of the
+3 pairs, only 2 of them (d i) & (P o)
+appear in the string, so the answer is
+2.
+
+Example 2:
+
+Input :
+N = 1
+Arr[] = {('r','e')}
+M = 3
+S= "ghe"
+Output : 0
+*/
+
+SOLUTION:
+class Solution
+{
+	public static int count_pairs(char arr[],String s,int n,int m)
+	{
+		int count = 0;
+		for(int i=0;i<n;i+=2)
+		{
+			if(s.contains(String.valueOf(arr[i])) && s.contains(String.valueOf(arr[i+1])))
+			{
+				count++;
+			}
+		}
+		return count;
+	}
+}
