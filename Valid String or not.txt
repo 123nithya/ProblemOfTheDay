@@ -1,0 +1,45 @@
+/*
+	To check a variable name is valid or not.
+	Variable rules are:
+		1. Variables must begin with letters or underscore
+		2. They can be constructed with digits, letters.
+		3. No special symbols are allowed other than underscore.
+		4. It cannot be longer than 31 characters
+		5. It cannot be a keyword 
+
+	Write a java program
+*/
+SOLUTION:
+import java.util.*;
+import java.io.*;
+import javax.lang.model.SourceVersion;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		if(isValidVariable(str))
+			System.out.print(str+" is valid");
+		else
+			System.out.print(str+" is invalid");
+	}
+	public static boolean isValidVariable(String str)
+	{
+		if(str.length()>31)
+			return false;
+		if(!Character.isLetter(str.charAt(0))&&str.charAt(0)!='_')
+		{
+			return false;
+		}
+		for(int i=1;i<str.length();i++)
+		{
+			char c = str.charAt(i);
+			if(!Character.isLetterOrDigit(c)&&c!='_')
+				return false;
+		}
+		if(SourceVersion.isKeyword(str))
+			return false;
+		return true;
+	}
+}
