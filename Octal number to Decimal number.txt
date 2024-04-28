@@ -1,0 +1,21 @@
+/*
+	Write a Java program to convert octal number to decimal number.
+*/
+SOLUTION:
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		long octalNum = sc.nextLong();
+		long decNum = 0;
+		int i=0;
+		while(octalNum>0)
+		{
+			decNum = (long)(decNum+(octalNum%10)*Math.pow(8,i++));
+			octalNum/=10;
+		}
+		System.out.print("Decimal number is : "+decNum);
+	}
+}
