@@ -1,0 +1,44 @@
+/*
+	Write a function to count the number of nodes in a given singly linked list in java.
+*/
+
+SOLUTION:
+import java.util.*;
+
+class Node
+{
+    int data;
+    Node next;
+    Node(int data)
+    {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class Main
+{
+     Node head;
+     public int getCount()
+     {
+	Node temp = head;
+	int count = 0;
+	while(temp!=null)
+	{
+		count++;
+		temp = temp.next;
+	}
+	return count;
+     }
+     public static void main(String[] args)
+     {
+	Scanner sc = new Scanner(System.in);
+	int n = sc.nextInt();
+	LinkedList list = new LinkedList();
+	for(int i=0;i<n;i++)
+	{
+		list.add(sc.nextInt());
+	}
+	System.out.print("Count of nodes is : "+list.getCount());
+     }
+}
