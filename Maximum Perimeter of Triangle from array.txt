@@ -1,0 +1,42 @@
+/*
+	Given an Array of non-negative integers. Find out the maximum perimeter of the triangle from the array.
+
+Example 1:
+
+â€‹Input : arr[ ] = {6, 1, 6, 5, 8, 4}
+Output : 20
+Explanation:
+Triangle formed by  8,6 & 6. Thus 
+perimeter 20.
+
+â€‹Example 2:
+
+Input : arr[ ] = {7, 55, 20, 1, 4, 33, 12} 
+Output :  -1
+Explanation:
+As the triangle is not possible because 
+the condition: the sum of two sides should 
+be greater than third is not fulfilled here.
+*/
+
+SOLUTION:
+
+class Complete
+{
+	public static int maxPerimeter(int arr[],int n)
+	{
+		Arrays.sort(arr);
+		int peri = 0;
+		int max = -1;
+		for(int i=n-1;i>=2;i--)
+		{
+			if(arr[i]<(arr[i-1]+arr[i-2]))
+			{
+				peri = arr[i]+arr[i-1]+arr[i-2];
+				if(max<peri)
+				{max = peri;}
+			}
+		}
+		return max;
+	}
+}
