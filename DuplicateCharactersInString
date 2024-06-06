@@ -1,0 +1,33 @@
+/*
+    Problem-statement: Take a input string from the user and find duplicate characters
+    in the given string, Print all the characters having count>1
+
+    INPUT:
+    abcdab
+
+    OUTPUT:
+    a b
+*/
+
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class DuplicateString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a String : ");
+        String str = sc.nextLine();
+        HashSet<Character> set = new HashSet<>();
+        for(char c:str.toCharArray())
+        {
+            if(set.contains(c))
+            {
+                System.out.print(c+" ");
+            }
+            else
+            {
+                set.add(c);
+            }
+        }
+    }
+}

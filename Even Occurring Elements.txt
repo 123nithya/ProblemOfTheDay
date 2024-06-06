@@ -1,0 +1,98 @@
+/*
+	Given an array Arr of N integers that contains odd number of occurrences for all numbers except for a few elements which are present even number of times. Find the elements which have even occurrences in the array.
+
+
+Example 1:
+
+Input:
+N = 11
+Arr[] = {9, 12, 23, 10, 12, 12, 
+15, 23, 14, 12, 15}
+Output: 12 15 23
+
+Example 2:
+
+Input:
+N = 5
+Arr[] = {23, 12, 56, 34, 32}
+Output: -1
+Explanation: Every integer is present odd 
+number of times.
+*/
+
+SOLUTION:
+
+class Solution {
+    int[] repeatingEven(int[] arr, int n) {
+        HashMap<Integer,Integer> map = new HashMap<>();
+        HashSet<Integer> set = new HashSet<>();
+        for(int i=0;i<n;i++)
+        {
+            if(!map.containsKey(arr[i]))
+            {
+                map.put(arr[i],1);
+            }
+            else
+            {
+                map.put(arr[i],map.get(arr[i])+1);
+            }
+        }
+        for(Map.Entry<Integer,Integer> entry:map.entrySet())
+        {
+            if(entry.getValue()%2 == 0)
+            {
+                set.add(entry.getKey());
+            }
+        }
+        int ans[] = new int[set.size()];
+        int idx = 0;
+        for(int ele:set){
+            ans[idx++] = ele;
+        }
+        Arrays.sort(ans);
+        if(ans.length == 0){
+            return new int[]{-1};
+        }
+        return ans;
+    }
+}
+
+
+/*
+
+EXPLAINATION:
+	Imagine you have a list of numbers, like this one:
+
+[4, 2, 4, 6, 2, 6, 6, 2, 4, 4]
+
+You want to find out which numbers appear an even number of times in this list. In this case, the number 4 appears 4 times, and the number 2 appears 3 times, and the number 6 appears 3 times. So only 4 appears an even number of times.
+
+The code you see here does exactly that! Let's walk through how it works, using our example list [4, 2, 4, 6, 2, 6, 6, 2, 4, 4].
+
+Setup: The code creates a map (like a dictionary) to count how many times each number appears and a set to keep the numbers that appear an even number of times.
+
+Count the Numbers: It goes through each number in the list and updates the count for each number in the map. After this step, our map looks like this:
+
+4 appears 4 times
+2 appears 3 times
+6 appears 3 times
+Find Even Counts: The code then looks at each number and its count in the map. If the count is even (like 2, 4, 6, etc.), it adds that number to the set. After this step, our set contains just one number:
+
+4
+Prepare the Answer: It then creates an array from the set of even-count numbers and sorts it. Since our set only contains 4, the sorted array is just [4].
+
+Check if Empty: If no numbers had even counts, it would return [-1]. But in our case, it returns [4].
+
+
+Map.Entry:
+
+Map.Entry is an interface that represents a single key-value pair within a Map. When you work with a Map, each entry is a combination of a key and a value. For example, in our map where we count occurrences of numbers, an entry might look like this:
+
+Key: 4
+Value: 4 (indicating that the number 4 appears 4 times)
+So, Map.Entry gives us a way to access these key-value pairs.
+
+entrySet():
+
+entrySet() is a method of the Map interface that returns a set of all the entries (key-value pairs) in the map. This set contains Map.Entry objects, each representing one key-value pair from the map.		
+*/
